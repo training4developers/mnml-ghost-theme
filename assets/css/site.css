@@ -1,0 +1,8 @@
+.page-description-updated {
+  opacity: 0.01;
+}
+
+.page-description-updated.page-description-updated-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}

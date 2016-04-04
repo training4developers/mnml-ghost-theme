@@ -12,10 +12,11 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+    <link rel="shortcut icon" href="{{asset 'favicon.ico'}}">
 
     {{! Styles'n'Scripts }}
-    <link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset 'css/main.css'}}" />
+		<link rel="stylesheet" type="text/css" href="{{asset 'css/site.css'}}" />
 
 <!-- For speed, I’ve added the response from this link straight into defer.css-->
 <!--<link rel="stylesheet" href="//brick.a.ssl.fastly.net/Source+Serif+Pro:400,700/Source+Sans+Pro:400,900,400i,900i/Alegreya:400i,700i">-->
@@ -63,7 +64,7 @@
     {{#if @blog.navigation}}
       {{>menu}}
     {{/if}}
-    
+
 
     <!-- Ghost outputs important scripts and data with this tag -->
     {{ghost_foot}}
@@ -89,8 +90,13 @@
     </script>
 
     {{! The main JavaScript file for Mnml (Look, ma! No jQuery!)}}
-    <script async src="{{asset "js/index.js"}}"></script>
-    <script defer src="{{asset "js/prism.min.js"}}"></script>
+    <script async src="{{asset 'js/index.js'}}"></script>
+    <script defer src="{{asset 'js/prism.min.js'}}"></script>
+
+		<script src="//cdnjs.cloudflare.com/ajax/libs/redux/3.0.5/redux.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/react/0.14.8/react-with-addons.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/react/0.14.8/react-dom.js"></script>
+		<script src="{{asset 'js/site.js'}}"></script>
 
 </body>
 </html>
