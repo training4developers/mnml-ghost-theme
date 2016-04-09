@@ -17,9 +17,7 @@ var PageDescription = React.createClass({
 
 		var component = this;
 
-		setTimeout(function() {
-			component.domElement.classList.add("page-description-updated");
-		}, 0);
+		component.domElement.classList.add("page-description-updated");
 
 	},
 
@@ -29,12 +27,12 @@ var PageDescription = React.createClass({
 
 		setTimeout(function() {
 			component.domElement.classList.add("page-description-updated-active");
-		}, 0);
+		}, 100);
 
 		setTimeout(function() {
 			component.domElement.classList.remove("page-description-updated");
 			component.domElement.classList.remove("page-description-updated-active");
-		}, 1000);
+		}, 2000);
 	}
 
 })
@@ -93,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		window.store.dispatch({
 			type: "ROTATE_DESCRIPTION"
 		});
-	}, 5000);
+	}, 6000);
 
 	render(pageDescriptionElement);
 

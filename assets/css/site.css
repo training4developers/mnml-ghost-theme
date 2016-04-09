@@ -4,7 +4,7 @@
 
 .page-description-updated.page-description-updated-active {
   opacity: 1;
-  transition: opacity 1000ms ease-in;
+  transition: opacity 2000ms ease-in;
 }
 
 .site-footer > section:first-of-type {
