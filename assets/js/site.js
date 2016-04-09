@@ -1,6 +1,4 @@
-var pageDescriptionElement = document.querySelector('.page-description');
-var pageDescription = pageDescriptionElement.textContent;
-var pageDescriptions = pageDescription.split('|');
+
 
 var PageDescription = React.createClass({
 
@@ -42,9 +40,9 @@ var PageDescription = React.createClass({
 })
 
 
-function render() {
+function render(pageDescriptionElement) {
 	ReactDOM.render(React.createElement(PageDescription, {
-		page: store.getState().page
+		page: window.store.getState().page
 	}), pageDescriptionElement);
 }
 
@@ -68,7 +66,7 @@ function reducer(state, action) {
 			var newDescriptionIndex = state.page.descriptionIndex + 1;
 			state.page = {
 				descriptionIndex: newDescriptionIndex,
-				description: pageDescriptions[newDescriptionIndex % pageDescriptions.length]
+				description: window.pageDescriptions[newDescriptionIndex % window.pageDescriptions.length]
 			};
 			return state;
 		default:
@@ -77,15 +75,26 @@ function reducer(state, action) {
 
 }
 
-var store = Redux.createStore(reducer);
-store.subscribe(render);
 
-setInterval(function() {
-	store.dispatch({
-		type: "ROTATE_DESCRIPTION"
-	});
-}, 5000);
 
 document.addEventListener('DOMContentLoaded', function() {
-	render();
+
+	var pageDescriptionElement = document.querySelector('.page-description');
+
+	if (!pageDescriptionElement) return;
+
+	window.pageDescription = pageDescriptionElement.textContent;
+	window.pageDescriptions = pageDescription.split('|');
+
+	window.store = Redux.createStore(reducer);
+	window.store.subscribe(render.bind(null, pageDescriptionElement));
+
+	setInterval(function() {
+		window.store.dispatch({
+			type: "ROTATE_DESCRIPTION"
+		});
+	}, 5000);
+
+	render(pageDescriptionElement);
+
 });

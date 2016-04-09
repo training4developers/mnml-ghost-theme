@@ -6,3 +6,42 @@
   opacity: 1;
   transition: opacity 1000ms ease-in;
 }
+
+.site-footer > section:first-of-type {
+	font-size: 0.9rem;
+}
+
+.site-footer > section:nth-of-type(2) {
+	font-size: 0.6rem;
+}
+
+.post.page header {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
+.post.page .post-meta {
+	display:none;
+}
+
+.post.page h1 {
+	border-bottom: #e0e4e7 1px solid
+}
+
+.post-content ul {
+	padding-left: 5rem;
+}
+
+#ourtrainer + p::before {
+	content:url(/assets/img/ericwgreene_175x175_rounded.png);
+	float:right;
+	width: 175px;
+	height: 175px;
+	margin-left:5px;
+	margin-bottom: 5px;
+}
+
+.post-content > p + p {
+	text-indent: 0;
+	margin-top:1.5rem;
+}
