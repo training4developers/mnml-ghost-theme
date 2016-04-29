@@ -77,11 +77,12 @@ function reducer(state, action) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
+	var blogDescriptionElement = document.getElementById('blog-description');
 	var pageDescriptionElement = document.querySelector('.page-description');
 
 	if (!pageDescriptionElement) return;
 
-	window.pageDescription = pageDescriptionElement.textContent;
+	window.pageDescription = blogDescriptionElement.textContent;
 	window.pageDescriptions = pageDescription.split('|');
 
 	window.store = Redux.createStore(reducer);
